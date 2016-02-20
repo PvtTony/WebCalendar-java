@@ -12,8 +12,10 @@
   </head>
   <body>
   <div id="content">
-    <form method="post">
-
+    <form method="post" action="/userlogin">
+      <input type="text" name="usr_email" placeholder="Email" autofocus=""/>
+      <input type="password" name="usr_pass" placeholder="Password"/>
+      <input type="submit" name="usr_submit" value="Login"/>
     </form>
   </div>
   </body>
