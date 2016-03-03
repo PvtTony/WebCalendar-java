@@ -5,4 +5,5 @@ Java版在线日历
 
 使用了Servlet和jsp开发
 
-使用了Sergey Romanov bootstrap Calendar project https://github.com/Serhioromano/bootstrap-calendar的开源项目，再次表示感谢
+使用了Sergey Romanov bootstrap Calendar project https://github.com/Serhioromano/bootstrap-calendar 
+的开源项目，再次表示感谢
