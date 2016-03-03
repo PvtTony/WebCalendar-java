@@ -31,6 +31,7 @@
     <div class="page-header">
 
         <div class="pull-right form-inline">
+
             <div class="btn-group">
                 <button class="btn btn-primary" data-calendar-nav="prev"><< Prev</button>
                 <button class="btn btn-default" data-calendar-nav="today">Today</button>
@@ -49,7 +50,14 @@
     </div>
 
     <div class="row">
-        <div id="calendar"></div>
+        <div class="col-md-9">
+            <div id="calendar"></div>
+        </div>
+        <div class="col-md-3">
+            <h4>Events</h4>
+            <small>This list is populated with events dynamically</small>
+            <ul id="eventlist" class="nav nav-list"></ul>
+        </div>
     </div>
 
     <div class="modal fade" id="events-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -73,20 +81,8 @@
     <script type="text/javascript" src="components/underscore/underscore-min.js"></script>
     <script type="text/javascript" src="components/bootstrap3/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="components/jstimezonedetect/jstz.min.js"></script>
-    <script type="text/javascript" src="js/language/nl-NL.js"></script>
-    <script type="text/javascript" src="js/language/fr-FR.js"></script>
-    <script type="text/javascript" src="js/language/de-DE.js"></script>
-    <script type="text/javascript" src="js/language/el-GR.js"></script>
-    <script type="text/javascript" src="js/language/it-IT.js"></script>
-    <script type="text/javascript" src="js/language/pl-PL.js"></script>
-    <script type="text/javascript" src="js/language/pt-BR.js"></script>
-    <script type="text/javascript" src="js/language/ro-RO.js"></script>
-    <script type="text/javascript" src="js/language/es-MX.js"></script>
-    <script type="text/javascript" src="js/language/es-ES.js"></script>
-    <script type="text/javascript" src="js/language/ru-RU.js"></script>
-    <script type="text/javascript" src="js/language/sv-SE.js"></script>
-    <script type="text/javascript" src="js/language/cs-CZ.js"></script>
-    <script type="text/javascript" src="js/language/ko-KR.js"></script>
+    <script type="text/javascript" src="js/language/zh-CN.js"></script>
+
     <script type="text/javascript" src="js/calendar.js"></script>
     <!--<script type="text/javascript" src="js/app.js"></script>-->
     <script>
@@ -99,6 +95,7 @@
                 view: 'month',
                 tmpl_path: 'tmpls/',
                 tmpl_cache: false,
+
                 onAfterEventsLoad: function (events) {
                     if (!events) {
                         return;
@@ -140,12 +137,18 @@
                 });
             });
 
-            $('#first_day').change(function () {
-                var value = $(this).val();
-                value = value.length ? parseInt(value) : null;
-                calendar.setOptions({first_day: value});
+            $(document).ready(function () {
+//                calendar.setLanguage('zh-CN');
+                calendar.setOptions({first_day: 1});
+//                calendar.setOptions({modal: '#events-modal'});
                 calendar.view();
             });
+            /*$('#first_day').change(function () {
+             var value = $(this).val();
+             value = value.length ? parseInt(value) : null;
+             calendar.setOptions({first_day: value});
+             calendar.view();
+             });*/
 
             /*$('#language').change(function () {
              calendar.setLanguage($(this).val());

@@ -16,7 +16,7 @@ import org.json.simple.*;
 public class EventManager
 {
     private ArrayList<Event> events = new ArrayList<>();
-    private DbControl dbControl = new DbControl("jdbc:mysql://ap-cdbr-azure-east-c.cloudapp.net:3306/acsm_1a07d58c9837ade", "b4601f33dc2d7f", "59f735c8");
+    private DbControl dbControl = new DbControl("jdbc:mysql://localhost:3306/calendar", "calendar", "89023331");
     private User user;
 
     public EventManager(User user)
@@ -61,12 +61,16 @@ public class EventManager
             }
 
 
+            resultSet.close();
+            preparedStatement.close();
+            connection.close();
         }
         catch (SQLException e)
         {
             Logger.log(e.getMessage());
             e.printStackTrace();
         }
+
     }
 
     public String getEventsInJson()
