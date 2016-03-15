@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 /**
  * Created by yuson on 2016/2/19.
- * Event Model Class
+ * Event Model POJO Class
  */
 public class Event
 {

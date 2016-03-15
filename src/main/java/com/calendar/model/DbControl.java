@@ -14,8 +14,11 @@ import java.util.Date;
  */
 public class DbControl
 {
+    //database url
     private String url;
+    //db usrname
     private String username;
+    //db pw
     private String password;
 
     public DbControl(String url, String username, String password)
@@ -60,6 +63,7 @@ public class DbControl
     {
         try
         {
+            //find mysql connector
             Class.forName("com.mysql.jdbc.Driver");
             Logger.log("Found MySQL Driver.");
 

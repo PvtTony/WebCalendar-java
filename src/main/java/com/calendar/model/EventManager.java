@@ -40,8 +40,18 @@ public class EventManager
             String sql = "INSERT INTO cal_data VALUES(?,?,?,?,?,?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, usrID);
+            preparedStatement.setString(2, calTitle);
+            preparedStatement.setString(3, calClass);
+            preparedStatement.setString(4, calInfo);
+            preparedStatement.setBigDecimal(5, calStart);
+            preparedStatement.setBigDecimal(6, calEnd);
 
-
+            preparedStatement.executeQuery();
+            /*
+            * Should I set some verification process?
+            *
+            * */
+            this.refreshAllEvents();
         }
         catch (SQLException e)
         {
@@ -50,6 +60,11 @@ public class EventManager
         }
     }
 
+    private void refreshAllEvents()
+    {
+        this.cleanAllEvents();
+        this.getAllEvents();
+    }
     private void cleanAllEvents()
     {
         if (!this.events.isEmpty())
