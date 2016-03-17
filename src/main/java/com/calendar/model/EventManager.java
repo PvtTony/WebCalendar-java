@@ -12,6 +12,7 @@ import org.json.simple.*;
 
 /**
  * Created by yst on 2016/3/3.
+ * Event Manager Module
  */
 public class EventManager
 {
