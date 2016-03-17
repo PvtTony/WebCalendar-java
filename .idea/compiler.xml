@@ -25,8 +25,8 @@
         <module name="javaCalendarMaven" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="javaCalendarMaven" target="1.7" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="javaCalendarMaven" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

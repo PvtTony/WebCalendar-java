@@ -28,18 +28,19 @@ public class calendar extends HttpServlet
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
+        //Get Session
         HttpSession httpSession = request.getSession();
 //        String sessionID = request.getParameter("id");
-
+        //Create Model according to the session data
         User user = (User) httpSession.getAttribute("user");
         EventManager eventManager = new EventManager(user);
-
+        //set data attribute
         request.setAttribute("usrID", user.getUsrID());
         request.setAttribute("usrNickname", user.getUsrNickname());
         request.setAttribute("usrEmail", user.getUsrEmail());
         request.setAttribute("usrRegistered", user.getUsrRegistered().toString());
         request.setAttribute("EventJson", eventManager.getEventsInJson());
-
+        //set data to jsp
         request.getRequestDispatcher("calendar.jsp").forward(request, response);
 //        response.sendRedirect("/calendar.jsp");
     }

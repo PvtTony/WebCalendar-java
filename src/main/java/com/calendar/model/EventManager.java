@@ -25,8 +25,47 @@ public class EventManager
         this.getAllEvents();
     }
 
+    public void addEvent(Event event)
+    {
+        Connection connection = dbControl.connectToDatabase();
 
-    public void getAllEvents()
+        try
+        {
+            int usrID = event.getEventUsr().getUsrID();
+            String calTitle = event.getEventTitle();
+            String calClass = event.getEventClass();
+            String calInfo = event.getEventInfo();
+            BigDecimal calStart = event.getEventStart();
+            BigDecimal calEnd = event.getEventEnd();
+            String sql = "INSERT INTO cal_data VALUES(?,?,?,?,?,?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, usrID);
+            preparedStatement.setString(2, calTitle);
+            preparedStatement.setString(3, calClass);
+            preparedStatement.setString(4, calInfo);
+            preparedStatement.setBigDecimal(5, calStart);
+            preparedStatement.setBigDecimal(6, calEnd);
+
+            preparedStatement.executeQuery();
+            /*
+            * Should I set some verification process?
+            *
+            * */
+            this.refreshAllEvents();
+        }
+        catch (SQLException e)
+        {
+            Logger.log(e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    private void refreshAllEvents()
+    {
+        this.cleanAllEvents();
+        this.getAllEvents();
+    }
+    private void cleanAllEvents()
     {
         if (!this.events.isEmpty())
         {
@@ -36,6 +75,11 @@ public class EventManager
             }
         }
 
+    }
+
+    private void getAllEvents()
+    {
+        this.cleanAllEvents();
         Connection connection = dbControl.connectToDatabase();
 
         try
@@ -45,7 +89,6 @@ public class EventManager
             preparedStatement.setInt(1, user.getUsrID());
 
             ResultSet resultSet = preparedStatement.executeQuery();
-
 
             while (resultSet.next())
             {
@@ -60,7 +103,6 @@ public class EventManager
                 this.events.add(new Event(user, calID, calTitle, calInfo, calClass, calStart, calEnd));
             }
 
-
             resultSet.close();
             preparedStatement.close();
             connection.close();
@@ -72,6 +114,8 @@ public class EventManager
         }
 
     }
+
+
 
     public String getEventsInJson()
     {
