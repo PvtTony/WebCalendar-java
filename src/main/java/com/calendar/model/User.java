@@ -1,7 +1,9 @@
 package com.calendar.model;
 
+import com.calendar.util.DbControl;
+import com.calendar.util.Logger;
+
 import java.sql.Connection;
-import java.sql.Statement;
 import java.util.Date;
 
 import java.sql.*;

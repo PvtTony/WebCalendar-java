@@ -1,13 +1,14 @@
 package com.calendar.model;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import com.calendar.util.DbControl;
+import com.calendar.util.Logger;
 import org.json.simple.*;
 
 /**
@@ -33,6 +34,7 @@ public class EventManager
         try
         {
             int usrID = event.getEventUsr().getUsrID();
+            int eventID = event.getEventID();
             String calTitle = event.getEventTitle();
             String calClass = event.getEventClass();
             String calInfo = event.getEventInfo();
@@ -60,6 +62,8 @@ public class EventManager
             e.printStackTrace();
         }
     }
+
+//    public void delEvent(int )
 
     private void refreshAllEvents()
     {

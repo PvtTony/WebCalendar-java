@@ -1,6 +1,6 @@
 package com.calendar.controller;
 
-import com.calendar.model.Logger;
+import com.calendar.util.Logger;
 import com.calendar.model.User;
 import com.calendar.model.UserLoginException;
 

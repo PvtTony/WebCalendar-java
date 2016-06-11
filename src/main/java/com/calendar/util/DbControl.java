@@ -1,12 +1,10 @@
-package com.calendar.model;
+package com.calendar.util;
 
 import org.jetbrains.annotations.Nullable;
-import sun.rmi.runtime.Log;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Date;
 
 /**
  * Created by yst on 2016/3/3.
