@@ -1,4 +1,4 @@
-package com.calendar.model;
+package com.calendar.service;
 
 /**
  * Created by yst on 2016/3/3.

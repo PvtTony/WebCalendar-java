@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.calendar.model.Event" table="cal_data">
+        <meta attribute="class-description">
+            This class contains the event detail.
+        </meta>
+        <id name="eventID" type="int" column="cal_id">
+            <generator class="native"/>
+        </id>
+        <property name="userID" column="usr_id" type="int"/>
+        <property name="eventTitle" column="cal_title" type="java.lang.String"/>
+        <property name="eventInfo" column="cal_info" type="java.lang.String"/>
+        <property name="eventClass" column="cal_class" type="java.lang.String"/>
+        <property name="eventStart" column="cal_start" type="java.math.BigDecimal"/>
+        <property name="eventEnd" column="cal_end" type="java.math.BigDecimal"/>
+    </class>
+</hibernate-mapping>
