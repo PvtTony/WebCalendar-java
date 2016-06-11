@@ -7,23 +7,17 @@
         <property name="hibernate.dialect">
             org.hibernate.dialect.MySQLDialect
         </property>
-        <property name="hibernate.connection.driver_class">
-            com.mysql.jdbc.Driver
-        </property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
 
-        <!-- Assume test is the database name -->
-        <property name="hibernate.connection.url">
-            jdbc:mysql://localhost:3306/calendar
-        </property>
-        <property name="hibernate.connection.username">
-            calendar
-        </property>
-        <property name="hibernate.connection.password">
-            calendar
-        </property>
+        <!-- Assume calendar is the database name -->
+        <property name="hibernate.connection.url">jdbc:mysql://10.7.93.101:3306/calendar</property>
+        <!--<mapping resource="com/calendar/model/CalDataEntity.hbm.xml"/>
+        <mapping class="com.calendar.model.CalDataEntity"/>
+        <mapping class="com.calendar.model.CalUserEntity"/>
+        <mapping resource="com/calendar/model/CalUserEntity.hbm.xml"/>-->
 
         <!-- List of XML mapping files -->
-        <mapping resource=""/>
-
+        <mapping resource="User.hbm.xml"/>
+        <mapping resource="Event.hbm.xml" />
     </session-factory>
 </hibernate-configuration>

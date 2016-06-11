@@ -1,13 +1,5 @@
 package com.calendar.model;
 
-import com.calendar.util.DbControl;
-import com.calendar.util.Logger;
-
-import java.sql.Connection;
-import java.util.Date;
-
-import java.sql.*;
-
 /**
  * Created by yuson on 2016/2/19.
  * User Info Model Class
@@ -18,26 +10,23 @@ public class User
     private String usrPassword;
     private String usrNickname;
     private String usrEmail;
-    private Date usrRegistered;
 
-    private DbControl dbControl;
+//    private DbControl dbControl;
 
     public User()
     {
-        dbControl = new DbControl("jdbc:mysql://ap-cdbr-azure-east-c.cloudapp.net:3306/acsm_1a07d58c9837ade", "b4601f33dc2d7f", "59f735c8");
+//        dbControl = new DbControl("jdbc:mysql://ap-cdbr-azure-east-c.cloudapp.net:3306/acsm_1a07d58c9837ade", "b4601f33dc2d7f", "59f735c8");
     }
 
-    public User(int usrID, String usrPassword, String usrNickname, String usrEmail, Date usrRegistered)
+    public User(String usrPassword, String usrNickname, String usrEmail)
     {
-        this.usrID = usrID;
         this.usrPassword = usrPassword;
         this.usrNickname = usrNickname;
         this.usrEmail = usrEmail;
-        this.usrRegistered = usrRegistered;
     }
 
     //User Login
-    public void login(String usrEmail, String usrPassword) throws UserLoginException
+    /*public void login(String usrEmail, String usrPassword) throws UserLoginException
     {
         Connection connection = dbControl.connectToDatabase();
         try
@@ -84,10 +73,15 @@ public class User
             throw new UserLoginException("Database Error");
         }
     }
-
+*/
     public int getUsrID()
     {
         return usrID;
+    }
+
+    public void setUsrID(int usrID)
+    {
+        this.usrID = usrID;
     }
 
     public String getUsrPassword()
@@ -120,13 +114,5 @@ public class User
         this.usrEmail = usrEmail;
     }
 
-    public Date getUsrRegistered()
-    {
-        return usrRegistered;
-    }
 
-    public void setUsrRegistered(Date usrRegistered)
-    {
-        this.usrRegistered = usrRegistered;
-    }
 }

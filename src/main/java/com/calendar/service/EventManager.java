@@ -1,15 +1,7 @@
-package com.calendar.model;
+package com.calendar.service;
 
-import java.math.BigDecimal;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-
-import com.calendar.util.DbControl;
-import com.calendar.util.Logger;
-import org.json.simple.*;
+import com.calendar.model.Event;
+import com.calendar.model.User;
 
 /**
  * Created by yst on 2016/3/3.
@@ -17,19 +9,19 @@ import org.json.simple.*;
  */
 public class EventManager
 {
-    private ArrayList<Event> events = new ArrayList<>();
+    /*private ArrayList<Event> events = new ArrayList<>();
     private DbControl dbControl = new DbControl("jdbc:mysql://localhost:3306/calendar", "calendar", "89023331");
-    private User user;
+    private User user;*/
 
     public EventManager(User user)
     {
-        this.user = user;
-        this.getAllEvents();
+        /*this.user = user;
+        this.getAllEvents();*/
     }
 
     public void addEvent(Event event)
     {
-        Connection connection = dbControl.connectToDatabase();
+       /* Connection connection = dbControl.connectToDatabase();
 
         try
         {
@@ -50,22 +42,22 @@ public class EventManager
             preparedStatement.setBigDecimal(6, calEnd);
 
             preparedStatement.executeQuery();
-            /*
+            *//*
             * Should I set some verification process?
             *
-            * */
+            * *//*
             this.refreshAllEvents();
         }
         catch (SQLException e)
         {
             Logger.log(e.getMessage());
             e.printStackTrace();
-        }
+        }*/
     }
 
 //    public void delEvent(int )
 
-    private void refreshAllEvents()
+   /* private void refreshAllEvents()
     {
         this.cleanAllEvents();
         this.getAllEvents();
@@ -149,5 +141,5 @@ public class EventManager
     public User getUser()
     {
         return user;
-    }
+    }*/
 }

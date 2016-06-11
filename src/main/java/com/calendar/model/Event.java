@@ -8,18 +8,23 @@ import java.math.BigDecimal;
  */
 public class Event
 {
-    private User eventUsr;
+//    private User eventUsr;
     private int eventID;
+    private int userID;
     private String eventTitle;
     private String eventInfo;
     private String eventClass;
     private BigDecimal eventStart;
     private BigDecimal eventEnd;
 
-    public Event(User eventUsr, int eventID, String eventTitle, String eventInfo, String eventClass, BigDecimal eventStart, BigDecimal eventEnd)
+    public Event()
+    {}
+
+    public Event(int userID, String eventTitle, String eventInfo, String eventClass, BigDecimal eventStart, BigDecimal eventEnd)
     {
-        this.eventUsr = eventUsr;
-        this.eventID = eventID;
+//        this.eventUsr = eventUsr;
+
+        this.userID = userID;
         this.eventTitle = eventTitle;
         this.eventInfo = eventInfo;
         this.eventClass = eventClass;
@@ -27,7 +32,7 @@ public class Event
         this.eventEnd = eventEnd;
     }
 
-    public User getEventUsr()
+    /*public User getEventUsr()
     {
         return eventUsr;
     }
@@ -35,6 +40,16 @@ public class Event
     public void setEventUsr(User eventUsr)
     {
         this.eventUsr = eventUsr;
+    }*/
+
+    public int getUserID()
+    {
+        return userID;
+    }
+
+    public void setUserID(int userID)
+    {
+        this.userID = userID;
     }
 
     public int getEventID()
